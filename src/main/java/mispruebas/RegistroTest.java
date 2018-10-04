@@ -92,6 +92,10 @@ public class RegistroTest {
 		}
 
 	}
+	
+	public WebDriver getWebDriver(){
+		return driver;
+	}
 
 	@Test
 	public static void main(String[] args) throws Exception {
