@@ -9,7 +9,7 @@ public class FrameExample {
 	WebDriver driver;
 
 	// Ingresar a frame por número de frame
-	@Test
+
 	public void ingresarAFramePorId() throws InterruptedException {
 
 		RegistroTest web = new RegistroTest();
@@ -30,7 +30,7 @@ public class FrameExample {
 	}
 
 	// Ingresar a frame por nombre
-	@Test
+
 	public void ingresarAFramePorNombre() throws InterruptedException {
 
 		RegistroTest web = new RegistroTest();
@@ -50,6 +50,23 @@ public class FrameExample {
 
 	}
 
-	
+	@Test
+	public void ingresarANuevaVentana() throws InterruptedException {
+
+		RegistroTest web = new RegistroTest();
+		web.abrirNavegador();
+		driver = web.getWebDriver();
+		driver.get("http://sahitest.com/demo/");
+		MetodosComunes.hacerHighlight(driver, driver.findElement(By.cssSelector("a[target=popWin]")));
+		driver.findElement(By.cssSelector("a[target=_blank]")).click();
+		MetodosComunes.hacerHighlight(driver, driver.findElement(By.linkText("Frames Test")));
+		driver.findElement(By.linkText("Frames Test")).click();
+		driver.switchTo().frame("top");
+		driver.findElement(By.cssSelector("a[target=_blank]")).click();
+		Thread.sleep(5000);
+		driver.quit();
+		
+
+	}
 
 }

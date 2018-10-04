@@ -19,5 +19,11 @@ public class MetodosComunes {
 		}
 
 	}
+	
+	public static void gotoNewWindowByTittle(WebDriver driver, String title ){
+		
+		driver.switchTo().window(title);
+		
+	}
 
 }
