@@ -73,6 +73,10 @@ public class MyFirstTest {
 		
 	}
 	
+	public WebDriver getWebDriver(){
+		return driver;
+	}
+	
 	public static void main(String[] args) {
 		
 		MyFirstTest firstTest = new MyFirstTest();
