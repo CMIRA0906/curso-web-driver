@@ -43,10 +43,12 @@ public class WaitExamples {
 
 			WebDriverWait wait = new WebDriverWait(driver, Constantes.EXPLICIT_WAIT);
 			wait.until(ExpectedConditions.textToBe(by, text));
-			System.out.println("Se encontró el texto buscado");
+			LogTest.imprimirMensaje("Se encontró el texto buscado");
 
 		} catch (Exception e) {
+			LogTest.imprimirMensaje("No se existe el texto buscado dentro del elemento");
 			throw new TestException("No se existe el texto buscado dentro del elemento");
+			
 		}
 
 	}
@@ -57,10 +59,12 @@ public class WaitExamples {
 
 			WebDriverWait wait = new WebDriverWait(driver, Constantes.EXPLICIT_WAIT);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-			System.out.println("Si está el elemento buscado");
+			LogTest.imprimirMensaje("Si está el elemento buscado");
+		
 
 		} catch (Exception e) {
-			throw new MyTestExcepcion("No se existe el elemento buscado en el POM", null);
+			LogTest.imprimirMensaje("No se existe el elemento buscado en el DOM");
+			throw new MyTestExcepcion("No se existe el elemento buscado en el DOM", null);
 		}
 
 	}
