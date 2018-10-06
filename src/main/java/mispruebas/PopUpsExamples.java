@@ -70,10 +70,14 @@ public class PopUpsExamples {
 		//Se instancia objeto WebDriverWait
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.alertIsPresent()); 
+		
 		driver.switchTo().alert().accept();
 		myTest.cerrarNavegador();
 
 	}
+	
+	
+	
 	
 	
 	
