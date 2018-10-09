@@ -1,5 +1,7 @@
 package mispruebas;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,6 +33,10 @@ public class MyFirstTest {
 		
 		//Para ejecutar pruebas con chrome
 		driver = new ChromeDriver(chromeOptions);
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		
 		//Para ejecutar pruebas con firefox
 		//driver = new FirefoxDriver();
 		
@@ -44,7 +50,7 @@ public class MyFirstTest {
 	/**
 	 * Método para hacer login
 	 */
-	public void hacerLogin(){
+	public void hacerLogin(WebDriver driver){
 		
 		//Abrir la página web
 		driver.get("http://automationpractice.com/index.php");
@@ -67,21 +73,27 @@ public class MyFirstTest {
 		
 		if(driver!=null){
 			driver.quit();
+			System.out.println("Se cierra el navegador");
 		}else {
 		 System.out.println("No hay drivers con sesión activa");
 		}
 		
 	}
 	
+
 	public WebDriver getWebDriver(){
+		
 		return driver;
 	}
+	
+	
+	
 	
 	public static void main(String[] args) {
 		
 		MyFirstTest firstTest = new MyFirstTest();
 		firstTest.abrirNavegador();
-		firstTest.hacerLogin();
+		firstTest.hacerLogin(firstTest.getWebDriver());
 		
 	}
 	

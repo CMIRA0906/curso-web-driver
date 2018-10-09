@@ -1,14 +1,12 @@
 package mispruebas;
 
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.TestException;
-import org.testng.annotations.Test;
+
+
 
 public class WaitExamples {
 
@@ -20,8 +18,8 @@ public class WaitExamples {
 	By btnClickME = By.cssSelector("input[type=button]");
 	By lblTest = By.id("id2");
 
-	@Test
-	public void getTextExpectedCondition() throws MyTestExcepcion {
+
+	public void getTextExpectedCondition() throws Exception {
 
 		myTest.abrirNavegador();
 		driver = myTest.getWebDriver();
@@ -37,7 +35,7 @@ public class WaitExamples {
 
 	}
 
-	public void expectedConditionPresentTextInWebElementTest(WebDriver driver, By by, String text) {
+	public void expectedConditionPresentTextInWebElementTest(WebDriver driver, By by, String text) throws Exception {
 
 		try {
 
@@ -47,13 +45,13 @@ public class WaitExamples {
 
 		} catch (Exception e) {
 			LogTest.imprimirMensaje("No se existe el texto buscado dentro del elemento");
-			throw new TestException("No se existe el texto buscado dentro del elemento");
+			throw new Exception("No se existe el texto buscado dentro del elemento");
 			
 		}
 
 	}
 
-	public void expectedConditionPresenWebElement(WebDriver driver, By by) throws MyTestExcepcion {
+	public void expectedConditionPresenWebElement(WebDriver driver, By by) throws Exception {
 
 		try {
 
@@ -64,9 +62,18 @@ public class WaitExamples {
 
 		} catch (Exception e) {
 			LogTest.imprimirMensaje("No se existe el elemento buscado en el DOM");
-			throw new MyTestExcepcion("No se existe el elemento buscado en el DOM", null);
+			throw new Exception("No se existe el elemento buscado en el DOM", null);
 		}
 
+	}
+	
+	
+	public static void main(String[] args) throws Exception {
+		
+		WaitExamples waitdd = new WaitExamples();
+		waitdd.getTextExpectedCondition();
+		
+		
 	}
 
 }

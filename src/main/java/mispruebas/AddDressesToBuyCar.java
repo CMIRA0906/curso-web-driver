@@ -2,13 +2,7 @@ package mispruebas;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.Mouse;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,8 +16,6 @@ public class AddDressesToBuyCar {
 
 	public AddDressesToBuyCar() {
 
-//		this.driver = driver;
-//		PageFactory.initElements(driver, this);
 	}
 
 	By lnkTShirts = By.cssSelector("div>ul>li>a[title='T-shirts']");
@@ -32,13 +24,11 @@ public class AddDressesToBuyCar {
 	By rbtSize = By.id("layered_id_attribute_group_2");
 	By imgDress = By.cssSelector("img[title='Printed Dress']");
 	By btnAddToCar = By.cssSelector("a[class='button ajax_add_to_cart_button btn btn-default'][title='Add to cart']");
-			//By.cssSelector("ul[class='submenu-container clearfix first-in-line-xs'] ul[style='display: none;'] li>a[title='Casual Dresses']");
 	By btnProceedToCheckout = By.cssSelector("a[class='btn btn-default button button-medium']");
 	
 	
-	public void comprarCamisa() throws InterruptedException {
+	public void buyDress() throws InterruptedException {
 
-		// webTest.abrirNavegador();
 		myFirstTest.abrirNavegador();
 		
 		driver =myFirstTest.getWebDriver();
@@ -66,17 +56,14 @@ public class AddDressesToBuyCar {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(btnProceedToCheckout));
 		MetodosComunes.hacerHighlight(driver,driver.findElement(btnProceedToCheckout));
 		driver.findElement(btnProceedToCheckout).click();
-		
-		Thread.sleep(5000);
-		driver.quit();
+		myFirstTest.cerrarNavegador();
 
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
 		
 		AddDressesToBuyCar addDressesToBuyCar = new AddDressesToBuyCar();
-		addDressesToBuyCar.comprarCamisa();
-		
+		addDressesToBuyCar.buyDress();
 		
 	}
 
