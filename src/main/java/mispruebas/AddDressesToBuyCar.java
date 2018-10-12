@@ -1,5 +1,7 @@
 package mispruebas;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -27,9 +29,10 @@ public class AddDressesToBuyCar {
 	By btnProceedToCheckout = By.cssSelector("a[class='btn btn-default button button-medium']");
 	
 	
-	public void buyDress() throws InterruptedException {
+	public void buyDress() throws InterruptedException, MalformedURLException {
 
-		myFirstTest.abrirNavegador();
+//		myFirstTest.abrirNavegador();
+		myFirstTest.abrirNavegadorRemotoSauseLabs();
 		
 		driver =myFirstTest.getWebDriver();
 		driver.get("http://automationpractice.com/index.php?id_category=9&controller=category");
@@ -60,7 +63,7 @@ public class AddDressesToBuyCar {
 
 	}
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, MalformedURLException {
 		
 		AddDressesToBuyCar addDressesToBuyCar = new AddDressesToBuyCar();
 		addDressesToBuyCar.buyDress();
