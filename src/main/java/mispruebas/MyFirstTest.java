@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -90,14 +91,26 @@ public class MyFirstTest {
 
 	public void abrirNavegadorRemotoSauseLabs() throws MalformedURLException{
 		
-		DesiredCapabilities caps =  new DesiredCapabilities();
+		DesiredCapabilities caps =  new DesiredCapabilities().chrome();
 		caps.setCapability("browser", "Chrome");
 	    caps.setCapability("browser_version", "62.0");
 	    caps.setCapability("os", "Windows");
 	    caps.setCapability("os_version", "10");
 	    caps.setCapability("resolution", "1024x768");
 	    
+	    
 	    driver = new RemoteWebDriver(new URL(URL),caps);
+		
+		
+	}
+	
+public void abrirNavegadoEnDocker() throws MalformedURLException{
+		
+		DesiredCapabilities caps =  new DesiredCapabilities().chrome();
+
+	    caps.setPlatform(Platform.LINUX);
+	    
+	    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),caps);
 		
 		
 	}
