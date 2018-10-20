@@ -32,7 +32,7 @@ public class AddDressesToBuyCar {
 	public void buyDress() throws InterruptedException, MalformedURLException {
 
 //		myFirstTest.abrirNavegador();
-		//myFirstTest.abrirNavegadoEnDocker();
+		myFirstTest.abrirNavegadoEnDocker();
 		myFirstTest.abrirNavegadorRemotoSauseLabs();
 		driver =myFirstTest.getWebDriver();
 		driver.get("http://automationpractice.com/index.php?id_category=9&controller=category");
