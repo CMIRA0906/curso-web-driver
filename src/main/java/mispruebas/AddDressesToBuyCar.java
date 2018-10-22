@@ -2,6 +2,7 @@ package mispruebas;
 
 import java.net.MalformedURLException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -46,6 +47,8 @@ public class AddDressesToBuyCar {
 		wait.until(ExpectedConditions.elementToBeClickable(lnkCasualDresses));
 		
 		MetodosComunes.hacerHighlight(driver, driver.findElement(lnkCasualDresses));
+		MetodosComunes.showAlert(driver,"Se espera a que el elemento esté visible");
+		driver.switchTo().alert().accept();
 		System.out.println("Se espera a que el elemento esté visible");
 		driver.findElement(lnkCasualDresses).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(imgDress));

@@ -20,6 +20,14 @@ public class MetodosComunes {
 
 	}
 	
+	public static void showAlert(WebDriver driver,String textAlert) {
+
+		if (driver instanceof JavascriptExecutor) {
+			((JavascriptExecutor) driver).executeScript("alert('"+textAlert+"')");
+		}
+
+	}
+	
 	public static void gotoNewWindowByTittle(WebDriver driver, String title ){
 		
 		driver.switchTo().window(title);
