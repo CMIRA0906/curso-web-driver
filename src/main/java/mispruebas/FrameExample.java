@@ -2,14 +2,13 @@ package mispruebas;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
+
 
 public class FrameExample {
 
 	WebDriver driver;
 
 	// Ingresar a frame por número de frame
-	@Test
 	public void ingresarAFramePorId() throws InterruptedException {
 
 		RegistroTest web = new RegistroTest();
@@ -30,7 +29,6 @@ public class FrameExample {
 	}
 
 	// Ingresar a frame por nombre
-	@Test
 	public void ingresarAFramePorNombre() throws InterruptedException {
 
 		RegistroTest web = new RegistroTest();

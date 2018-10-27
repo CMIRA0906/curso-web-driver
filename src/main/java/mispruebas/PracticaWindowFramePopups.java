@@ -4,7 +4,7 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
+
 
 public class PracticaWindowFramePopups {
 
@@ -18,7 +18,6 @@ public class PracticaWindowFramePopups {
 	By lnkConfirmPage = By.linkText("Confirm Page");
 	By lnkPromptPage  = By.linkText("Prompt Page");
 
-	@Test
 	public void practicing() {
 
 		MyFirstTest myFirstTest = new MyFirstTest();
