@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="My primera suit">
+<parameter name="browser" value="chrome"/>
+<test name="My primer test" enabled="false" time-out="10000">
+<classes>
+<class name="tests.MyTest"/>
+</classes>
+</test>
+
+<test name="Login" enabled="true">
+<classes>
+<class name="tests.LoginMyStoreTest"/>
+</classes>
+</test>
+</suite>
+
+
+
