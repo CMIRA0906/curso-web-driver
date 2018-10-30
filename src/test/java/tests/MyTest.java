@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import common.ReadExcelData;
+
 
 public class MyTest extends BaseTest {
 
