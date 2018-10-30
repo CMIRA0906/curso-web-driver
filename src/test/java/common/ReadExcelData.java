@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
@@ -32,7 +31,7 @@ public class ReadExcelData {
 	private static XSSFCell Cell;
 
 	// se instancia objeto ExcelRow, archivo con extensión xlsx
-	private static XSSFRow Row;
+	//private static XSSFRow Row;
 
 	/**
 	 * Este método se encarga de abrir el archivo excel y acceder a los datos

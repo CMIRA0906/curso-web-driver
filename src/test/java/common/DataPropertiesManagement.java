@@ -29,10 +29,6 @@ public class DataPropertiesManagement {
 		
 	}
 	
-	public static void main(String[] args) throws IOException {
-		
-		DataPropertiesManagement dataPropertiesManagement = new DataPropertiesManagement();
-			;
-	}
+
 
 }
