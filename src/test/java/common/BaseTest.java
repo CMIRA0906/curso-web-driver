@@ -1,26 +1,30 @@
 package common;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-
 public class BaseTest {
 
 	public WebDriver driver;
-	
-	@Parameters({"browser"})
+
+	@Parameters({ "browser" })
 	@BeforeTest
-	public void abrirNavegador(String browser) {
-		
+	public void abrirNavegador(String browser) throws MalformedURLException {
+
 		if ("chrome".equals(browser)) {
-			
+
 			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
 			ChromeOptions chromeOptions = new ChromeOptions();
@@ -29,18 +33,25 @@ public class BaseTest {
 
 			// Para ejecutar pruebas con chrome
 			driver = new ChromeDriver(chromeOptions);
+
+		} else if ("remoto".equals(browser)) {
 			
-		
-		}else {
+			DesiredCapabilities capabilities = new DesiredCapabilities().chrome();
 			
+			capabilities.setBrowserName("chrome");
+			capabilities.setPlatform(Platform.ANY);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+
+		} else {
+
 			System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-			
+
 			driver = new FirefoxDriver();
 			System.err.println("El parametro no corresponde al nombre de un navegador");
-	
+
 		}
 		// Se define la propiedad del sistema con el driver
-	
+
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 

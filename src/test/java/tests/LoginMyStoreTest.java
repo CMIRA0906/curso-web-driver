@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import common.BaseTest;
 import common.DataPropertiesManagement2;
+import common.Utilidades;
 import constantes.ConstantesPruebas;
 
 public class LoginMyStoreTest extends BaseTest{
@@ -26,6 +27,7 @@ public class LoginMyStoreTest extends BaseTest{
 	public void hecerLogin() throws IOException, InterruptedException{
 		
 		driver.get(ConstantesPruebas.URL_MY_STORE);
+		Utilidades.tomarEvidencia(driver);
 		
 		DataPropertiesManagement2 dataPropertiesManagement2 = new DataPropertiesManagement2();
 		Properties properties =  dataPropertiesManagement2.getProperties();
@@ -35,6 +37,7 @@ public class LoginMyStoreTest extends BaseTest{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(txtEmail));
 		
 		driver.findElement(txtEmail).sendKeys(properties.getProperty("user"));
+		
 		driver.findElement(txtPassword).sendKeys(properties.getProperty("password"));
 		driver.findElement(btnLogin).click();
 		Assert.assertEquals(driver.findElement(lnkUsuario).getText(),"Cristian Mira");
