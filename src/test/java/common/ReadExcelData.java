@@ -14,7 +14,7 @@ public class ReadExcelData {
 	public static void main(String[] args) {
 
 		try {
-			getDatos().toString();
+			getDatos();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -22,13 +22,13 @@ public class ReadExcelData {
 	}
 
 	// se instancia objeto Excelbook, archivo con extensión xlsx
-	private static XSSFWorkbook ExcelWBook;
+	private static XSSFWorkbook excelWBook;
 
 	// se instancia objeto ExcelSheet, archivo con extensión xlsx
-	private static XSSFSheet ExcelWSheet;
+	private static XSSFSheet excelWSheet;
 
 	// se instancia objeto ExcelCell, archivo con extensión xlsx
-	private static XSSFCell Cell;
+	private static XSSFCell excelWCell;
 
 	// se instancia objeto ExcelRow, archivo con extensión xlsx
 	//private static XSSFRow Row;
@@ -52,9 +52,9 @@ public class ReadExcelData {
 
 			// Access the required test data sheet
 
-			ExcelWBook = new XSSFWorkbook(excelFile);
+			excelWBook = new XSSFWorkbook(excelFile);
 
-			ExcelWSheet = ExcelWBook.getSheet(sheetName);
+			excelWSheet = excelWBook.getSheet(sheetName);
 
 		} catch (FileNotFoundException e) {
 
@@ -76,22 +76,22 @@ public class ReadExcelData {
 	@DataProvider(name = "getDatosPrueba")
 	public static Object[][] getDatos() {
 
-		int filas = 1;
-		int columnas = 3;
+		int filas = 2;
+		int columnas = 2;
 
 		Object[][] datos = new Object[filas][columnas];
 		try {
 
-			setExcelFile("src/test/resources/pruebas_data_driven.xlsx", "hoja1");
+			setExcelFile("src/test/resources/DatosPrueba.xlsx", "hoja1");
 
-			// Recorre las columnas
+			// Recorre las filas
 			for (int i = 0; i < filas; i++) {
-				// recorre las filas
+				// recorre las columnas
 				for (int j = 0; j < columnas; j++) {
 
-					Cell = ExcelWSheet.getRow(i).getCell(j);
+					excelWCell = excelWSheet.getRow(i).getCell(j);
 
-					datos[i][j] = Cell.getStringCellValue();
+					datos[i][j] = excelWCell.getStringCellValue();
 					System.out.println(datos[i][j]);
 				}
 			}
