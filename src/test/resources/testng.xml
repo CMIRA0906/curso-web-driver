@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<<<<<<< HEAD
 <suite name="My primera suit" parallel="tests" thread-count="5">
 	<parameter name="browser" value="chrome" />
 	<test name="My primer test" enabled="false" time-out="10000">
@@ -7,6 +8,15 @@
 			<class name="tests.MyTest" />
 		</classes>
 	</test>
+=======
+<suite name="My primera suit" parallel="none" thread-count="5">
+<parameter name="browser" value="chrome"/>
+<test name="My primer test" enabled="false" time-out="10000">
+<classes>
+<class name="tests.MyTest"/>
+</classes>
+</test>
+>>>>>>> bc99c5933009086d307551f108a3097876898994
 
 	<test name="Login" enabled="false">
 		<classes>
