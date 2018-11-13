@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="My primera suit" parallel="tests" thread-count="5">
-<parameter name="browser" value="remoto"/>
-<test name="My primer test" enabled="false" time-out="10000">
-<classes>
-<class name="tests.MyTest"/>
-</classes>
-</test>
+	<parameter name="browser" value="chrome" />
+	<test name="My primer test" enabled="false" time-out="10000">
+		<classes>
+			<class name="tests.MyTest" />
+		</classes>
+	</test>
 
-<test name="Login" enabled="true">
-<classes>
-<class name="tests.LoginMyStoreTest"/>
-</classes>
-</test>
+	<test name="Login" enabled="false">
+		<classes>
+			<class name="tests.LoginMyStoreTest" />
+		</classes>
+	</test>
+
+
+	<test name="Crear Doctor" enabled="true">
+		<classes>
+			<class name="tests.CreateDoctorTest" />
+		</classes>
+	</test>
 </suite>
 
 
