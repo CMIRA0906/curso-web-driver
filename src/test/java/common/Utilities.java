@@ -3,6 +3,7 @@ package common;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.*;
@@ -27,10 +28,11 @@ public class Utilities {
 
 		try {
 
-			File evidenceFolder= createEvidenceFolder();
+			File evidenceFolder = createEvidenceFolder();
 			File evidenceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(evidenceFile, new File(evidenceFolder+"/"+ String.valueOf(System.currentTimeMillis()) + ".png"));
-			
+			FileUtils.copyFile(evidenceFile,
+					new File(evidenceFolder + "/" + String.valueOf(System.currentTimeMillis()) + ".png"));
+
 		} catch (Exception e) {
 
 			LOGGER.error("Se presentó un error tomando la evidencia " + e);
@@ -65,6 +67,17 @@ public class Utilities {
 		driver.switchTo().window(title);
 
 	}
+	/**
+	 * Método para generar número de forma aleatoria
+	 * 
+	 * @return
+	 */
+	public static int randomNumber() {
+
+		Random random = new Random();
+		return random.nextInt();
+
+	}
 
 	private static File createEvidenceFolder() {
 		try {
@@ -87,4 +100,5 @@ public class Utilities {
 		}
 
 	}
+
 }

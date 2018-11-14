@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
+import common.Utilities;
 import pages.CreateDoctorPage;
 import pages.MenuPage;
 
@@ -18,7 +19,8 @@ public class CreateDoctorTest extends BaseTest{
 		menuPage.enterToAddDoctorPage();
 		CreateDoctorPage doctorPage = new CreateDoctorPage(driver);
 		
-		int numeroDocumento =(int) Math.random();
+		int numeroDocumento =Utilities.randomNumber();
+	
 		doctorPage.createDoctor("Cristian", "Mira", "3008502112","Cédula de ciudadanía", String.valueOf(numeroDocumento));
 		assertTrue(doctorPage.getMsjConfirm().contains("Datos guardados correctamente."));
 		Thread.sleep(5000);
