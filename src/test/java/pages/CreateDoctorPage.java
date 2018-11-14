@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import common.Utilities;
+
 public class CreateDoctorPage {
 
 	// Se instancia el driver
@@ -48,19 +50,21 @@ public class CreateDoctorPage {
 		
 		txtName.clear();
 		txtName.sendKeys(name);
-		
+		Utilities.tomarEvidencia(driver);
 		txtLastName.clear();
 		txtLastName.sendKeys(lastName);
+		Utilities.tomarEvidencia(driver);
 		txtTelephone.clear();
 		txtTelephone.sendKeys(phone);
-		
+		Utilities.tomarEvidencia(driver);
 		Select listDocumentType = new Select(lstIdentificationType);
 		listDocumentType.selectByValue(documentType);
-		
+		Utilities.tomarEvidencia(driver);
 		txtIdentification.clear();
 		txtIdentification.sendKeys(numDocument);
-		
+		Utilities.tomarEvidencia(driver);
 		btnGuardar.click();
+		Utilities.tomarEvidencia(driver);
 		
 		
 	}

@@ -1,6 +1,7 @@
 package common;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -11,9 +12,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Utilidades {
+import constantes.ConstantesPruebas;
 
-	public static final Logger LOGGER = LogManager.getLogger(Utilidades.class);
+public class Utilities {
+
+	public static final Logger LOGGER = LogManager.getLogger(Utilities.class);
 
 	/**
 	 * Método para tomar evidencia las acciones realizadas
@@ -24,17 +27,15 @@ public class Utilidades {
 
 		try {
 
-			File evidencia = null;
-			evidencia = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(evidencia,
-					new File("src/test/resources/evidencias/evidencia" + new Date().getTime() + ".png"));
-
+			File evidenceFolder= createEvidenceFolder();
+			File evidenceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(evidenceFile, new File(evidenceFolder+"/"+ String.valueOf(System.currentTimeMillis()) + ".png"));
+			
 		} catch (Exception e) {
 
 			LOGGER.error("Se presentó un error tomando la evidencia " + e);
 
 		}
-
 	}
 
 	/**
@@ -65,4 +66,25 @@ public class Utilidades {
 
 	}
 
+	private static File createEvidenceFolder() {
+		try {
+			String stringDate = new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new Date());
+
+			File directory = new File(ConstantesPruebas.EVIDENCES_PATH.concat(stringDate));
+
+			if (!directory.exists()) {
+				directory.mkdir();
+				System.out.println("Se creó la carpeta de las evidencias");
+			}
+
+			return directory;
+
+		} catch (Exception e) {
+
+			System.out.println("No se pudo crear la carpeta " + e);
+			return null;
+
+		}
+
+	}
 }

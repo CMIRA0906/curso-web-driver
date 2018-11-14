@@ -1,10 +1,14 @@
 package constantes;
 
-public class ConstantesPruebas {
+public interface ConstantesPruebas {
 	
-	public static final String RUTA_PROPERTIES="src/test/resources/application.properties";
+	String RUTA_PROPERTIES="src/test/resources/application.properties";
 	//URL my store
-	public static final String URL_MY_STORE="http://automationpractice.com/";
+	String URL_MY_STORE="http://automationpractice.com/";
+	//URL heruku app
+	String URL_HERUKU_APP="http://automatizacion.herokuapp.com/pperez/";
+	
+	String EVIDENCES_PATH="src/test/resources/evidencias/";
 	
 
 }

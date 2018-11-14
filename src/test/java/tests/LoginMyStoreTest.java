@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import common.BaseTest;
 import common.ReadExcelData;
-import common.Utilidades;
+import common.Utilities;
 import constantes.ConstantesPruebas;
 
 public class LoginMyStoreTest extends BaseTest {
@@ -54,7 +54,7 @@ public class LoginMyStoreTest extends BaseTest {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(lnkSingIn));
 
-		Utilidades.tomarEvidencia(driver);
+		Utilities.tomarEvidencia(driver);
 
 		driver.findElement(lnkSingIn).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(txtEmail));
@@ -63,7 +63,7 @@ public class LoginMyStoreTest extends BaseTest {
 
 		driver.findElement(txtPassword).sendKeys(clave);
 		driver.findElement(btnLogin).click();
-		Utilidades.tomarEvidencia(driver);
+		Utilities.tomarEvidencia(driver);
 		Assert.assertEquals(driver.findElement(lnkUsuario).getText(), "Cristian Mira");
 		driver.findElement(singOut).click();
 
