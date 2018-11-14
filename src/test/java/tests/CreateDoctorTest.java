@@ -17,7 +17,9 @@ public class CreateDoctorTest extends BaseTest{
 		menuPage.openHerukuPage();
 		menuPage.enterToAddDoctorPage();
 		CreateDoctorPage doctorPage = new CreateDoctorPage(driver);
-		doctorPage.createDoctor("Cristian", "Mira", "3008502112","Cédula de ciudadanía", "10995258125");
+		
+		int numeroDocumento =(int) Math.random();
+		doctorPage.createDoctor("Cristian", "Mira", "3008502112","Cédula de ciudadanía", String.valueOf(numeroDocumento));
 		assertTrue(doctorPage.getMsjConfirm().contains("Datos guardados correctamente."));
 		Thread.sleep(5000);
 
