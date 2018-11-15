@@ -18,6 +18,11 @@
 			<class name="tests.CreateDoctorTest" />
 		</classes>
 	</test>
+		<test name="Login Page Factory" enabled="true">
+		<classes>
+			<class name="tests.LoginTest" />
+		</classes>
+	</test>
 </suite>
 
 
