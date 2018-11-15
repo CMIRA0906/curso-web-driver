@@ -14,6 +14,8 @@ public class MenuPage {
 	
 	@FindBy(how = How.CSS,using="a[href='addDoctor']")
 	private WebElement lnkAddDoctor;
+	@FindBy(how = How.CSS,using="a[href='addPatient']")
+	private WebElement lnkAddPatient;
 	
 	
 	
@@ -34,8 +36,12 @@ public class MenuPage {
 	public void enterToAddDoctorPage(){
 		
 		lnkAddDoctor.click();
+	
+	}
+	public void enterToAddPatientPage(){
 		
-		
+		lnkAddPatient.click();
+
 	}
 	
 
