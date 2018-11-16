@@ -18,6 +18,11 @@ import org.testng.annotations.Parameters;
 public class BaseTest {
 
 	public WebDriver driver;
+	
+	public static final String USERNAME = "cristianmira1";
+	public static final String AUTOMATE_KEY = "yjfSF9yFgrjxe7is5z2f";
+	public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+
 
 	@Parameters({ "browser" })
 	@BeforeTest
@@ -43,11 +48,16 @@ public class BaseTest {
 			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
 		} else {
+	
+				DesiredCapabilities caps =  new DesiredCapabilities().chrome();
+				caps.setCapability("browser", "Chrome");
+			    caps.setCapability("browser_version", "62.0");
+			    caps.setCapability("os", "Windows");
+			    caps.setCapability("os_version", "10");
+			    caps.setCapability("resolution", "1024x768");
+			   			    
+			    driver = new RemoteWebDriver(new URL(URL),caps);
 
-			System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-
-			driver = new FirefoxDriver();
-			System.err.println("El parametro no corresponde al nombre de un navegador");
 
 		}
 		// Se define la propiedad del sistema con el driver

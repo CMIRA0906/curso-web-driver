@@ -12,6 +12,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import constantes.ConstantesPruebas;
 
@@ -67,6 +69,7 @@ public class Utilities {
 		driver.switchTo().window(title);
 
 	}
+
 	/**
 	 * Método para generar número de forma aleatoria
 	 * 
@@ -99,6 +102,12 @@ public class Utilities {
 
 		}
 
+	}
+
+	public static void waitForVisibilityOfWebElement(WebElement webElement, WebDriver driver) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOf(webElement));
 	}
 
 }
