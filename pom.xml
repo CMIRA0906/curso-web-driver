@@ -9,8 +9,19 @@
 		<jdk.level>1.8</jdk.level>
 		<selenium.version>3.11.0</selenium.version>
 		<testng.version>6.10</testng.version>
+		<sonar.project>CMIRA0906_curso-web-driver </sonar.project>
+		<sonar.organization>cmira0906-github</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>4b0a761235892f5f8fa80e8f88d25a10f8d38f99</sonar.login>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.2</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 
 			para generar datos aleatorio tipo string -->
 		<dependency>
