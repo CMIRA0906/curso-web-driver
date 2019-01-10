@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class RegistroTest {
 
 	// Se instancia de la clase webdriver
-	public WebDriver driver;
+	private WebDriver driver;
 
 	By linkLogin = By.cssSelector("div>.login");
 	By txtEmailNuevo = By.id("email_create");

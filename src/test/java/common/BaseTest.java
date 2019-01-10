@@ -8,7 +8,6 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
@@ -42,10 +41,10 @@ public class BaseTest {
 		} else if ("remoto".equals(browser)) {
 			
 			DesiredCapabilities capabilities = new DesiredCapabilities().chrome();
-			
 			capabilities.setBrowserName("chrome");
 			capabilities.setPlatform(Platform.ANY);
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+			driver = new RemoteWebDriver(new URL("http://172.30.4.174:4444/wd/hub"), capabilities);
+		//	driver = new RemoteWebDriver(new URL("http://172.30.4.174:4444/wd/hub"), capabilities);
 
 		} else {
 	
