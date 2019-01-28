@@ -31,7 +31,6 @@ public class AddDressesToBuyCar {
 	
 	public void buyDress() throws InterruptedException, MalformedURLException {
 
-//		myFirstTest.abrirNavegador();
 		myFirstTest.abrirNavegadoEnDocker();
 		myFirstTest.abrirNavegadorRemotoSauseLabs();
 		driver =myFirstTest.getWebDriver();
@@ -48,10 +47,10 @@ public class AddDressesToBuyCar {
 		MetodosComunes.hacerHighlight(driver, driver.findElement(lnkCasualDresses));
 		MetodosComunes.showAlert(driver,"Se espera a que el elemento esté visible");
 		driver.switchTo().alert().accept();
-		System.out.println("Se espera a que el elemento esté visible");
+		LogTest.imprimirMensaje("Se espera a que el elemento esté visible");
 		driver.findElement(lnkCasualDresses).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(imgDress));
-		System.out.println("Se espera Size");
+		LogTest.imprimirMensaje("Se espera Size");
 		MetodosComunes.hacerHighlight(driver,driver.findElement(rbtSize));
 		driver.findElement(rbtSize).click();
 	

@@ -23,7 +23,6 @@ public class PopUpsExamples {
 		driver.get(Constantes.URL_PRUEBAS);
 		driver.findElement(lnkAlertText).click();
 		driver.findElement(btnClicAlert).click();
-		// Da clic en la opción aceptar de la alerta
 		driver.switchTo().alert().accept();
 		myTest.cerrarNavegador();
 
@@ -36,7 +35,6 @@ public class PopUpsExamples {
 		driver.get(Constantes.URL_PRUEBAS);
 		driver.findElement(lnkConfirmPage).click();
 		driver.findElement(btnClicAlert).click();
-		// Da clic en la opción cancelar de la alerta
 		driver.switchTo().alert().dismiss();
 		myTest.cerrarNavegador();
 
@@ -49,7 +47,6 @@ public class PopUpsExamples {
 		driver.get(Constantes.URL_PRUEBAS);
 		driver.findElement(lnkPromptPage).click();
 		driver.findElement(btnClicAlert).click();
-		// Envia información en el textBox 
 		driver.switchTo().alert().sendKeys("Test.....");
 		driver.switchTo().alert().accept();
 		
@@ -64,7 +61,6 @@ public class PopUpsExamples {
 		driver.get(Constantes.URL_PRUEBAS);
 		driver.findElement(lnkAlertText).click();
 		driver.findElement(btnClicAlert).click();
-		//Se instancia objeto WebDriverWait
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.alertIsPresent()); 
 		

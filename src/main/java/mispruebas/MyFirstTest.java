@@ -67,7 +67,7 @@ public class MyFirstTest {
 
 		if (driver != null) {
 			driver.quit();
-			System.out.println("Se cierra el navegador");
+			LogTest.imprimirMensaje("Se cierra el navegador");
 		} else {
 			LOGGER.info("No hay drivers con sesión activa");
 		}

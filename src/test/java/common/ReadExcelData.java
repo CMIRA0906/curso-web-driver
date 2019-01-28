@@ -4,34 +4,24 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
+import mispruebas.Pruebas;
+
 public class ReadExcelData {
 
-	public static void main(String[] args) {
-
-		try {
-			getDatos();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	// se instancia objeto Excelbook, archivo con extensión xlsx
 	private static XSSFWorkbook excelWBook;
 
-	// se instancia objeto ExcelSheet, archivo con extensión xlsx
 	private static XSSFSheet excelWSheet;
 
-	// se instancia objeto ExcelCell, archivo con extensión xlsx
 	private static XSSFCell excelWCell;
 
-	// se instancia objeto ExcelRow, archivo con extensión xlsx
-	//private static XSSFRow Row;
+	public static final Logger LOGGER = LogManager.getLogger(Pruebas.class);
 
 	/**
 	 * Este método se encarga de abrir el archivo excel y acceder a los datos
@@ -46,11 +36,9 @@ public class ReadExcelData {
 
 		try {
 
-			// Open the Excel file
 
 			FileInputStream excelFile = new FileInputStream(path);
 
-			// Access the required test data sheet
 
 			excelWBook = new XSSFWorkbook(excelFile);
 
@@ -58,10 +46,10 @@ public class ReadExcelData {
 
 		} catch (FileNotFoundException e) {
 
-			System.out.println("Este es el error: " + e);
+			LOGGER.error("Este es el error: " + e);
 
 		} catch (IOException e1) {
-			System.out.println("Este es el error: " + e1);
+			LOGGER.error("Este es el error: " + e1);
 		}
 
 	}
@@ -92,7 +80,7 @@ public class ReadExcelData {
 					excelWCell = excelWSheet.getRow(i).getCell(j);
 
 					datos[i][j] = excelWCell.getStringCellValue();
-					System.out.println(datos[i][j]);
+					LOGGER.info(datos[i][j]);
 				}
 			}
 
@@ -100,7 +88,7 @@ public class ReadExcelData {
 
 		} catch (Exception e) {
 
-			System.err.println("Error:" + e);
+			LOGGER.error("Error:" + e);
 			return null;
 
 		}

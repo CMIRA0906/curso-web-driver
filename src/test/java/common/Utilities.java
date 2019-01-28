@@ -90,14 +90,14 @@ public class Utilities {
 
 			if (!directory.exists()) {
 				directory.mkdir();
-				System.out.println("Se creó la carpeta de las evidencias");
+				LOGGER.info("Se creó la carpeta de las evidencias");
 			}
 
 			return directory;
 
 		} catch (Exception e) {
 
-			System.out.println("No se pudo crear la carpeta " + e);
+			LOGGER.info("No se pudo crear la carpeta " + e);
 			return null;
 
 		}

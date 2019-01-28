@@ -15,15 +15,6 @@ public class DataPropertiesManagement {
 		Properties properties = new Properties();
 		properties.load(fileProperties);
 		
-		System.out.println(properties.getProperty("user"));
-		System.out.println(properties.getProperty("password"));
-		
-		
-		
-		
-		
-		
-		
 		return new Properties();
 		
 		

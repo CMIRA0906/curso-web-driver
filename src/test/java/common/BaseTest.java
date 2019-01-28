@@ -32,10 +32,7 @@ public class BaseTest {
 			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
 			ChromeOptions chromeOptions = new ChromeOptions();
-			// Preferencias del navegador
 			chromeOptions.addArguments("start-maximized", "--incognito", "disable-infobars");
-
-			// Para ejecutar pruebas con chrome
 			driver = new ChromeDriver(chromeOptions);
 
 		} else if ("remoto".equals(browser)) {
@@ -44,7 +41,6 @@ public class BaseTest {
 			capabilities.setBrowserName("chrome");
 			capabilities.setPlatform(Platform.ANY);
 			driver = new RemoteWebDriver(new URL("http://172.30.4.174:4444/wd/hub"), capabilities);
-		//	driver = new RemoteWebDriver(new URL("http://172.30.4.174:4444/wd/hub"), capabilities);
 
 		} else {
 	
@@ -59,7 +55,6 @@ public class BaseTest {
 
 
 		}
-		// Se define la propiedad del sistema con el driver
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
