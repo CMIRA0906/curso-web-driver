@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import constantes.ConstantesPruebas;
+import constantes.Constantes;
 
 public class MenuPage {
 	
@@ -28,7 +28,7 @@ public class MenuPage {
 	
 	public void openHerukuPage(){
 		
-		driver.get(ConstantesPruebas.URL_HERUKU_APP);
+		driver.get(Constantes.URL_HERUKU_APP);
 
 		
 	}

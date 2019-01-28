@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import constantes.Constantes;
+
 public class WaitExamples {
 
 	public static final Logger LOGGER = LogManager.getLogger(WaitExamples.class);

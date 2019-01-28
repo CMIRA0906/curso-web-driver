@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import common.BaseTest;
 import common.ReadExcelData;
 import common.Utilities;
-import constantes.ConstantesPruebas;
+import constantes.Constantes;
 
 public class LoginMyStoreTest extends BaseTest {
 
@@ -49,7 +49,7 @@ public class LoginMyStoreTest extends BaseTest {
 	@Test(dataProvider = "getDatosPrueba", dataProviderClass = ReadExcelData.class)
 	public void hecerLogin(String usuario, String clave) throws IOException, InterruptedException {
 
-		driver.get(ConstantesPruebas.URL_MY_STORE);
+		driver.get(Constantes.URL_MY_STORE);
 
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(lnkSingIn));

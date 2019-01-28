@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import constantes.ConstantesPruebas;
+import constantes.Constantes;
 
 public class Utilities {
 
@@ -86,7 +86,7 @@ public class Utilities {
 		try {
 			String stringDate = new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new Date());
 
-			File directory = new File(ConstantesPruebas.EVIDENCES_PATH.concat(stringDate));
+			File directory = new File(Constantes.EVIDENCES_PATH.concat(stringDate));
 
 			if (!directory.exists()) {
 				directory.mkdir();

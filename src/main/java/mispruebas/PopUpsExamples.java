@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import constantes.Constantes;
+
 public class PopUpsExamples {
 
 	MyFirstTest myTest = new MyFirstTest();
